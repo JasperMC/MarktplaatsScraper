@@ -1,4 +1,4 @@
-# MarktplaatsScraper
+# Marktplaats Scraper
 This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover.
 
 # Requirements
