@@ -4,14 +4,23 @@ This script scrapes Marktplaats based on a search query and notifies the user of
 Run the program by executing Main.py: python Main.py
 
 # Requirements
-Requires python (tested on v3) and some additional packages. In Command Prompt or Terminal run: pip install selenium python-pushover
+Requires python (tested on v3) and some additional packages.
+
+1. To install run the following in your Command prompt/Terminal
+
+python3 (to install python3 on Windows)
+python3 -v (to check if it installed)
+python3 -m install selenium python-pushover (installs dependencies)
+
+2. You will need to download the Chrome WebDriver for your operating system: https://chromedriver.chromium.org/downloads
+3. Extract Chrome WebDriver to a location on your computer. I would recommend a folder without UAC protection, for example C:\chromedriver\chromedriver.exe
 
 # Configuration
 Open config.json to make changes to the program's configuration. The following options are available:
-
-1. Pushover API Token: The pushover API token for your app. See: https://pushover.net/apps/build
-2. Pushover User Key: The user key of your pushover account. See: https://support.pushover.net/i7-what-is-pushover-and-how-do-i-use-it
-3. Scanning interval: The interval in seconds for scanning for new listings, 120 by default.
+1. Chrome driver path. This is the exact filepath to the chromedriver.exe you downloaded earlier.
+2. Pushover API Token: The pushover API token for your app. See: https://pushover.net/apps/build
+3. Pushover User Key: The user key of your pushover account. See: https://support.pushover.net/i7-what-is-pushover-and-how-do-i-use-it
+4. Scanning interval: The interval in seconds for scanning for new listings, 120 by default.
 
 # How to setup a query
 1. Go to Marktplaats.nl and do a search with any filters you want (e.g. price, distance, etc.)
