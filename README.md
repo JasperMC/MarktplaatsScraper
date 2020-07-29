@@ -1,6 +1,8 @@
 # Marktplaats Scraper
 This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover.
 
+Run the program by executing Main.py: python Main.py
+
 # Requirements
 Requires python (tested on v3) and some additional packages. In Command Prompt or Terminal run: pip install selenium python-pushover
 
