@@ -42,8 +42,8 @@ def getConfig():
 def getCommandLineConfig(argv):
     CONFIG = {}
     try:
-        opts, args = getopt.getopt(argv,['-p','p:','a:','u:','i:'])
-    except getop.GetoptError:
+        opts, args = getopt.getopt(argv,['a:','u:','i:'])
+    except getopt.GetoptError:
         print("Opt error!")   
     for opt, arg in opts:
         print(arg)
