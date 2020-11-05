@@ -8,7 +8,7 @@ class Scraper:
     def __init__(self, webdriverpath):
         options = webdriver.ChromeOptions()
         options.headless = True
-        self.driver = webdriver.Chrome("C:\chromedriver\chromedriver.exe", chrome_options=options)
+        self.driver = webdriver.Chrome(webdriverpath, chrome_options=options)
         self.driver.set_window_size(1120,550)
 
     def Scrape(self, url): # Scrapes a url through Selenium, uses a pattern to find listing details, and returns them.
