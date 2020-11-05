@@ -42,10 +42,9 @@ def getConfig():
 def getCommandLineConfig(argv):
     CONFIG = {}
     try:
-        opts, args = getopt.getopt(argv,['p','pushover_api:','pushover_user:','scanning_interval:'],["ifile=","ofile="])
-    except GetoptError:
-        print("No command line arguments passed")
-        exit(1)
+        opts, args = getopt.getopt(argv,[],["pushover_api=","pushover_user=","scanning_interval="])
+    #except getopt.GetoptError:
+       
     for opt, arg in opts:
         print(arg)
         if opt == "-pushover_api":
