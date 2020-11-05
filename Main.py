@@ -7,7 +7,9 @@ import json
 import sys
 import getopt
 
-def Test():
+def main(args):
+    
+    CONFIG = getCommandLineConfig()
     print("_________________________________")
     print("     Marktplaats Scraper ")
     print(" ")
@@ -38,9 +40,9 @@ def getConfig():
         json_file.close()
     return config
 
-def getCommandLineConfig():
+def getCommandLineConfig(argv):
     CONFIG = {}
-    opts, args = getopt.getopt()
+    opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
     for opt, arg in opts:
         if opt == "-pushover_api":
             CONFIG['pushover_api_token'] = arg
@@ -68,5 +70,4 @@ def check_for_updates(filename, url):
         print(' ')
     scraper.SaveListings(listings, filename)
 
-CONFIG = getCommandLineConfig()
-Test()
+main()
