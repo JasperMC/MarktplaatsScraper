@@ -4,6 +4,9 @@ from FileWatcher import FileWatcher
 import time
 import json
 
+import sys
+import getopt
+
 def Test():
     print("_________________________________")
     print("     Marktplaats Scraper ")
@@ -35,6 +38,18 @@ def getConfig():
         json_file.close()
     return config
 
+def getCommandLineConfig():
+    CONFIG = {}
+    opts, args = getopt.getopt()
+    for opt, arg in opts:
+        if opt == "-pushover_api":
+            CONFIG['pushover_api_token'] = arg
+        if opt == "-pushover_user":
+            CONFIG['pushover_user_key'] = arg
+        if opt == "-interval"
+            CONFIG['scanning_interval'] = arg
+    return CONFIG
+
 def check_for_updates(filename, url):
     scraper = Scraper()
     notifier = NotificationService(CONFIG['pushover_api_token'],CONFIG['pushover_user_key'])
@@ -53,5 +68,5 @@ def check_for_updates(filename, url):
         print(' ')
     scraper.SaveListings(listings, filename)
 
-CONFIG = getConfig()
+CONFIG = getCommandLineConfig()
 Test()
