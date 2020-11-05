@@ -70,4 +70,4 @@ def check_for_updates(filename, url):
         print(' ')
     scraper.SaveListings(listings, filename)
 
-main()
+#main()
