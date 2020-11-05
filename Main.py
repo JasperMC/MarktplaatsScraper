@@ -42,7 +42,11 @@ def getConfig():
 
 def getCommandLineConfig(argv):
     CONFIG = {}
-    opts, args = getopt.getopt(argv,"hi:o:",["ifile=","ofile="])
+    try:
+        opts, args = getopt.getopt(argv,"pushover_api:",["ifile=","ofile="])
+    except getOptError:
+        echo "No command line arguments passed"
+        exit 1
     for opt, arg in opts:
         if opt == "-pushover_api":
             CONFIG['pushover_api_token'] = arg
