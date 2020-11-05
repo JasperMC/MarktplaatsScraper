@@ -43,15 +43,15 @@ def getCommandLineConfig(argv):
     CONFIG = {}
     try:
         opts, args = getopt.getopt(argv,['a:','u:','i:'])
-    except getopt.GetoptError:
+    except getop.GetoptError:
         print("Opt error!")   
     for opt, arg in opts:
         print(arg)
-        if "pushover_api" in opt:
+        if "a" in opt:
             CONFIG['pushover_api_token'] = arg
-        if "pushover_user" in opt:
+        if "u" in opt:
             CONFIG['pushover_user_key'] = arg
-        if "interval" in opt:
+        if "i" in opt:
             CONFIG['scanning_interval'] = arg
     return CONFIG
 
