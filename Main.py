@@ -72,5 +72,5 @@ def check_for_updates(filename, url, notifier):
         print(' ')
     scraper.SaveListings(listings, filename)
 
-#if __name__ == "__main__":
-   #main(sys.argv[1:])
+if __name__ == "__main__":
+   main(sys.argv[1:])
