@@ -46,7 +46,7 @@ def getCommandLineConfig():
             CONFIG['pushover_api_token'] = arg
         if opt == "-pushover_user":
             CONFIG['pushover_user_key'] = arg
-        if opt == "-interval"
+        if opt == "-interval":
             CONFIG['scanning_interval'] = arg
     return CONFIG
 
