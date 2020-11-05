@@ -42,7 +42,7 @@ def getConfig():
 def getCommandLineConfig(argv):
     CONFIG = {}
     try:
-        opts, args = getopt.getopt(argv,[],["pushover_api=","pushover_user=","scanning_interval="])
+        opts, args = getopt.getopt(argv,['a:','u:','i:'])
     except getopt.GetoptError:
         print("Opt error!")   
     for opt, arg in opts:
