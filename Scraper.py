@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 class Scraper:
 
-    def __init__(self):
+    def __init__(self, webdriverpath):
         options = webdriver.ChromeOptions()
         options.headless = True
         self.driver = webdriver.Chrome("C:\chromedriver\chromedriver.exe", chrome_options=options)
