@@ -23,13 +23,14 @@ def main(args):
     notifier = NotificationService(CONFIG['pushover_api_token'],CONFIG['pushover_user_key'])
     fileWatcher = FileWatcher()
     print("Initial file scan found {} queries.".format(len(fileWatcher.getFiles())))
+    scraper = Scraper(CONFIG['webdriverpath'])
     try:
         while True:
             files = fileWatcher.getFiles()
             for file in files:
                 query = files[file]['query']
                 filepath = files[file]['listing_filepath']
-                check_for_updates(filepath,query,notifier)
+                check_for_updates(filepath,query,scraper, notifier)
             time.sleep(CONFIG['scanning_interval'])
     except KeyboardInterrupt:
         exit()
@@ -53,10 +54,11 @@ def getCommandLineConfig(argv):
             CONFIG['pushover_user_key'] = arg
         if "i" in opt:
             CONFIG['scanning_interval'] = arg
+        if "w" in opt
+            CONFIG['webdriverpath'] = arg
     return CONFIG
 
-def check_for_updates(filename, url, notifier):
-    scraper = Scraper()
+def check_for_updates(filename, url, scraper, notifier):
     listings = scraper.Scrape(url)
     new_listings = scraper.CompareListingsToSavedListings(listings,filename)
     print("Found {} new listings for {}".format(len(new_listings),filename))
