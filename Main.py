@@ -21,7 +21,7 @@ def main(args):
     print("Pushover API Token: {}".format(CONFIG['pushover_api_token']))
     print("Pushover User Key: {}".format(CONFIG['pushover_user_key']))
     print(" ")
-
+    notifier = NotificationService(CONFIG['pushover_api_token'],CONFIG['pushover_user_key'])
     fileWatcher = FileWatcher()
     print("Initial file scan found {} queries.".format(len(fileWatcher.getFiles())))
     try:
@@ -30,7 +30,7 @@ def main(args):
             for file in files:
                 query = files[file]['query']
                 filepath = files[file]['listing_filepath']
-                check_for_updates(filepath,query)
+                check_for_updates(filepath,query,notifier)
             time.sleep(CONFIG['scanning_interval'])
     except KeyboardInterrupt:
         exit()
@@ -56,9 +56,8 @@ def getCommandLineConfig(argv):
             CONFIG['scanning_interval'] = arg
     return CONFIG
 
-def check_for_updates(filename, url):
+def check_for_updates(filename, url, notifier):
     scraper = Scraper()
-    notifier = NotificationService(CONFIG['pushover_api_token'],CONFIG['pushover_user_key'])
     listings = scraper.Scrape(url)
     new_listings = scraper.CompareListingsToSavedListings(listings,filename)
     print("Found {} new listings for {}".format(len(new_listings),filename))
