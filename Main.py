@@ -43,7 +43,7 @@ def getCommandLineConfig(argv):
     CONFIG = {}
     try:
         opts, args = getopt.getopt(argv,['a:','u:','i:'])
-    except getopt.GetoptError:
+    except getop.GetoptError:
         print("Opt error!")   
     for opt, arg in opts:
         print(arg)
@@ -72,5 +72,5 @@ def check_for_updates(filename, url, notifier):
         print(' ')
     scraper.SaveListings(listings, filename)
 
-if __name__ == "__main__":
-   main(sys.argv[1:])
+#if __name__ == "__main__":
+   #main(sys.argv[1:])
