@@ -7,7 +7,7 @@ import json
 import sys
 import getopt
 
-def main(args):
+def __main__(args):
     CONFIG = getCommandLineConfig(args)
     print("_________________________________")
     print("     Marktplaats Scraper ")
@@ -72,4 +72,4 @@ def check_for_updates(filename, url, notifier):
         print(' ')
     scraper.SaveListings(listings, filename)
 
-main(sys.argv[1])
+
