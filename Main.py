@@ -54,7 +54,7 @@ def getCommandLineConfig(argv):
             CONFIG['pushover_user_key'] = arg
         if "i" in opt:
             CONFIG['scanning_interval'] = arg
-        if "w" in opt
+        if "w" in opt:
             CONFIG['webdriverpath'] = arg
     return CONFIG
 
