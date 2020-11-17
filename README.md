@@ -1,12 +1,15 @@
 # Marktplaats Scraper
-This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover. It works well but could use some improvements.
+This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover.
 
-# To do
-The current project to do list is as follows:
+# Features
+- Sends notification to your phone when it finds a new listing (title, description, price, link)
+- Filters out ads and commercial sellers when desired.
+- Loads queries as it goes (no need to restart, just move a file into the queries folder)
+
+# To do List
 1. Disable notifications for first scan (currently sends 30+ pushover notifications)
 2. Add mechanism to either get config from command line or file (currently commandline for Docker compatibility)
-3. Add option to limit to how many listings are scanned (currently limited to one page (~30)
-4. Add more notifcation providers (e.g. email)
+3. Add more notifcation providers (e.g. email)
 
 # Feature requests
 Feel free to create an issue if you have a feature request.
