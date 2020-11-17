@@ -19,7 +19,8 @@ Feel free to create an issue if you have a feature request.
   # Linux
   1. Go to the folder where you'd like to install the program.
   2. Run the following in terminal:
-  ```sudo apt-get update && sudo apt-get install git python3 python3-pip chromium chromium-webdriver
+  ```
+  sudo apt-get update && sudo apt-get install git python3 python3-pip chromium chromium-webdriver
   git clone https://github.com/jaspercardol/MarktplaatsScraper/
   cd MarktplaatsScraper
   pip3 install -r requirements.txt
@@ -27,7 +28,9 @@ Feel free to create an issue if you have a feature request.
   ```
   3. Edit the configuration (See "Configuration" section below)
   4. Run the program by typing the following:
-  ```./Main.py```
+  ```
+  ./Main.py
+  ```
   
   # Windows
    1. To install run the following in your Command prompt/Terminal
