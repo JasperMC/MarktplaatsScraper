@@ -38,16 +38,12 @@ class Scraper:
             except NoSuchElementException:
                 listing['seller_website'] = False
             
-            print(listing['seller_website'])
+            
             if self.skip_commercial_sellers and listing['seller_website'] != False:
-                print('This listing is commercial!')
                 continue
                 
             listings[url] = listing
            
-        # Test
-        print(original_count)
-        print(len(listings))
                   
         
         return listings
