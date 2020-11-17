@@ -46,7 +46,7 @@ class Scraper:
            
                   
         
-        return listings
+        return listings, original_count-len(listings)
 
     def SaveListings(self, listings, filename): # Saves listings to a file.
         with open(filename, "r") as json_file:
