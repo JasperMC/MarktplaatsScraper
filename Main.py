@@ -9,6 +9,8 @@ import getopt
 
 def main(args):
     CONFIG = getCommandLineConfig(args)
+    if not CONFIG:
+        CONFIG = getConfigFromFile()
     print("_________________________________")
     print("     Marktplaats Scraper ")
     print(" ")
@@ -34,7 +36,7 @@ def main(args):
             time.sleep(CONFIG['scanning_interval'])
     except KeyboardInterrupt:
         exit()
-def getConfig():
+def getConfigFromFile():
     with open('config.json',"r") as json_file:
         config = json.load(json_file)
         json_file.close()
@@ -44,8 +46,8 @@ def getCommandLineConfig(argv):
     CONFIG = {}
     try:
         opts, args = getopt.getopt(argv,'a:u:i:w:')
-    except getop.GetoptError:
-        print("Opt error!")   
+    except getopt.GetoptError:
+        return False
     for opt, arg in opts:
         print(arg)
         if "a" in opt:
