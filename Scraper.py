@@ -38,6 +38,7 @@ class Scraper:
             
             print(listing['seller_website'])
             if self.skip_commercial_sellers and listing['seller_website'] != False:
+                print('This listing is commercial!')
                 continue
             listings[url] = listing
            
