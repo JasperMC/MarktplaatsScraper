@@ -62,17 +62,17 @@ def getCommandLineConfig(argv):
     return CONFIG
 
 def check_for_updates(filename, url, scraper, notifier):
-    listings = scraper.Scrape(url)
+    listings, filtered = scraper.Scrape(url)
     new_listings = scraper.CompareListingsToSavedListings(listings,filename)
-    print("Found {} new listings for {}".format(len(new_listings),filename))
+    print("Found {} new listings for {} (Filtered {} ads/commercial sellers out)".format(len(new_listings),filename,filtered))
     for new_listing in new_listings:
         data = new_listings[new_listing]
-        title = 'New listing found: ' + data['title']
-        message = data['description'] + "(" + data['price'] + ")"
+        title = 'New: ' + data['title']
+        message = data['description'] + "\n\n(" + data['price'] + ")"
         link = data['url']
         link_title = 'Open in browser'
         notifier.Notify(title,message,link,link_title)
-        print(data['title'] + ': Notification sent through Pushover')
+        print(data['title'])
         print('Link: ' + data['url'])
         print(' ')
     scraper.SaveListings(listings, filename)
