@@ -46,7 +46,7 @@ class Scraper:
                 listings[url] = listing
            
             # Test
-            print(len(original_count))
+            print(original_count)
             print(len(listings))
                   
         
