@@ -9,8 +9,8 @@ import getopt
 
 def main(args):
     CONFIG = getCommandLineConfig(args)
-    if CONFIG == False:
-        CONFIG = getConfigFromFile()
+    #if CONFIG == False:
+    #    CONFIG = getConfigFromFile()
     print("_________________________________")
     print("     Marktplaats Scraper ")
     print(" ")
