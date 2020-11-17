@@ -1,34 +1,50 @@
 # Marktplaats Scraper
-This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover.
+This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover. It's a bit experimental at this point.
 
-Run the program by executing Main.py: python Main.py
+# What does it do?
+It scrapes Marktplaats for a certain query and saves the results. If new results are found in a scan afterwards, it will send those to Pushover (your phone/tablet/whatever you please).
 
-# Requirements
-Requires python (tested on v3) and some additional packages.
+# To do
+The current project to do list is as follows:
+1. Disable notifications for first scan (currently sends 30+ pushover notifications)
+2. Add mechanism to either get config from command line or file (currently commandline for Docker compatibility)
+3. Add option to limit to how many listings are scanned (currently limited to one page (~30)
+4. Add more notifcation providers (e.g. email)
 
-1. To install run the following in your Command prompt/Terminal
+# Feature requests
+Feel free to create an issue if you have a feature request.
 
-python3 (to install python3 on Windows)
-python3 -v (to check if it installed)
-python3 -m install selenium python-pushover (installs dependencies)
 
-2. You will need to download the Chrome WebDriver for your operating system: https://chromedriver.chromium.org/downloads
-3. Extract Chrome WebDriver to a location on your computer. I would recommend a folder without UAC protection, for example C:\chromedriver\chromedriver.exe
+# How to use it
+  # Docker
+  The easiest way to make this program work is Docker. A docker image based on alpine linux is available at https://github.com/jaspercardol/docker-MarktplaatsScraper
 
-# Configuration
-Open config.json to make changes to the program's configuration. The following options are available:
-1. Chrome driver path. This is the exact filepath to the chromedriver.exe you downloaded earlier.
-2. Pushover API Token: The pushover API token for your app. See: https://pushover.net/apps/build
-3. Pushover User Key: The user key of your pushover account. See: https://support.pushover.net/i7-what-is-pushover-and-how-do-i-use-it
-4. Scanning interval: The interval in seconds for scanning for new listings, 120 by default.
+  # Non-docker
+   Requires python (tested on v3) and some additional packages.
 
-# How to setup a query
-1. Go to Marktplaats.nl and do a search with any filters you want (e.g. price, distance, etc.)
-2. Copy the URL in your browser after you have done the search.
-1. In the "Queries" folder, create a file (for example: macbook.json) with the .json extension.
-2. Open the file in a text editor such as Notepad, Notepad++ or another program
-3. Type {"query": "[URL HERE]"} and replace [URL HERE] with the URL you copied before.
-4. Save the file
+   1. To install run the following in your Command prompt/Terminal
+
+   python3 (to install python3 on Windows)
+   python3 -v (to check if it installed)
+   python3 -m install selenium python-pushover (installs dependencies)
+
+   2. You will need to download the Chrome WebDriver for your operating system: https://chromedriver.chromium.org/downloads
+   3. Extract Chrome WebDriver to a location on your computer. I would recommend a folder without UAC protection, for example C:\chromedriver\chromedriver.exe
+
+   # Configuration
+   Open config.json to make changes to the program's configuration. The following options are available:
+    1. Chrome driver path. This is the exact filepath to the chromedriver.exe you downloaded earlier.
+    2. Pushover API Token: The pushover API token for your app. See: https://pushover.net/apps/build
+    3. Pushover User Key: The user key of your pushover account. See: https://support.pushover.net/i7-what-is-pushover-and-how-do-i-use-it
+    4. Scanning interval: The interval in seconds for scanning for new listings, 120 by default.
+
+   # How to setup a query
+    1. Go to Marktplaats.nl and do a search with any filters you want (e.g. price, distance, etc.)
+    2. Copy the URL in your browser after you have done the search.
+    1. In the "Queries" folder, create a file (for example: macbook.json) with the .json extension.
+    2. Open the file in a text editor such as Notepad, Notepad++ or another program
+    3. Type {"query": "[URL HERE]"} and replace [URL HERE] with the URL you copied before.
+    4. Save the file
 
 # Under the hood
 When the program starts, it creates a file for every query file in "Listings" to save the listings in. This is done to compare the found listings to older ones, so that it can determine which listings are actually new. Once it knows, it sends a pushover notifcation with the listing details.
