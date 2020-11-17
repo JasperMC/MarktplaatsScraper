@@ -17,24 +17,24 @@ Feel free to create an issue if you have a feature request.
   The easiest way to make this program work is Docker. A docker image based on alpine linux is available at https://github.com/jaspercardol/docker-MarktplaatsScraper
 
   # Linux
-  1. Run the following in terminal:
-  ```sudo apt-get update && sudo apt-get install git python3 python3-pip chromium chromium-webdriver```
-  2. Go to a folder where you'd like to install and run the following:
-  ```git clone https://github.com/jaspercardol/MarktplaatsScraper/
+  1. Go to the folder where you'd like to install the program.
+  2. Run the following in terminal:
+  ```sudo apt-get update && sudo apt-get install git python3 python3-pip chromium chromium-webdriver
+  git clone https://github.com/jaspercardol/MarktplaatsScraper/
   cd MarktplaatsScraper
   pip3 install -r requirements.txt
-  chmod +x Main.py```
+  chmod +x Main.py
+  ```
   3. Edit the configuration (See "Configuration" section below)
   4. Run the program by typing the following:
-  ./Main.py
+  ```./Main.py```
   
   # Windows
    1. To install run the following in your Command prompt/Terminal
 
-   python3 (to install python3 on Windows)
-   python3 -v (to check if it installed)
-   python3 -m install selenium python-pushover (installs dependencies)
-
+```python3
+   python3 -m install selenium python-pushover
+   ```
    2. You will need to download the Chrome WebDriver for your operating system: https://chromedriver.chromium.org/downloads
    3. Extract Chrome WebDriver to a location on your computer. I would recommend a folder without UAC protection, for example C:\chromedriver\chromedriver.exe
    
