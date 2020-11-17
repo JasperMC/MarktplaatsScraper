@@ -20,9 +20,9 @@ class Scraper:
         driver.get(url)
         listings = {}
         for element in driver.find_elements_by_class_name("mp-Listing--list-item"):
-            if self.skip_ads and "mp-Listing--cas" in element.get_attribute('class'): # Filters out ads.
+            if self.skip_ads && "mp-Listing--cas" in element.get_attribute('class'): # Filters out ads.
                 break;
-            if self.skip_commercial_sellers and element.find_element_by_class_name('mp-Listing-seller-link'):
+            if self.skip_commercial_sellers && element.find_element_by_class_name('mp-Listing-seller-link'):
                 break;
             listing = {}
             listing['title'] = element.find_element_by_css_selector('h3.mp-Listing-title').text
