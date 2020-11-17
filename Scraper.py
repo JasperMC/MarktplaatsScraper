@@ -19,6 +19,8 @@ class Scraper:
         driver = self.driver
         driver.get(url)
         listings = {}
+        original_count = len(driver.find_elements_by_class_name("mp-Listing--list-item"))
+        
         for element in driver.find_elements_by_class_name("mp-Listing--list-item"):
             if ("mp-Listing--cas" in element.get_attribute('class')) and self.skip_ads:
                 continue
@@ -40,9 +42,14 @@ class Scraper:
             if self.skip_commercial_sellers and listing['seller_website'] != False:
                 print('This listing is commercial!')
                 continue
-            listings[url] = listing
+            else:
+                listings[url] = listing
            
-            #print(listing)
+            # Test
+            print(len(original_count))
+            print(len(listings))
+                  
+        
         return listings
 
     def SaveListings(self, listings, filename): # Saves listings to a file.
