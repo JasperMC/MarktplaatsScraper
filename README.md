@@ -1,6 +1,5 @@
 # Marktplaats Scraper
-This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover. It's a bit experimental at this point.
-
+This script scrapes Marktplaats based on a search query and notifies the user of new listings via Pushover. It works well but could use some improvements.
 
 # To do
 The current project to do list is as follows:
