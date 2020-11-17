@@ -12,13 +12,17 @@ class Scraper:
         options.headless = True
         self.driver = webdriver.Chrome(webdriverpath, chrome_options=options)
         self.driver.set_window_size(1120,550)
+        self.skip_ads = True
+        self.skip_commercial_sellers = True
 
     def Scrape(self, url): # Scrapes a url through Selenium, uses a pattern to find listing details, and returns them.
         driver = self.driver
         driver.get(url)
         listings = {}
         for element in driver.find_elements_by_class_name("mp-Listing--list-item"):
-            if "mp-Listing--cas" in element.get_attribute('class'): # Filters out ads.
+            if self.skip_ads and "mp-Listing--cas" in element.get_attribute('class'): # Filters out ads.
+                break;
+            if self.skip_commercial_sellers and element.find_element_by_class_name('mp-Listing-seller-link'):
                 break;
             listing = {}
             listing['title'] = element.find_element_by_css_selector('h3.mp-Listing-title').text
@@ -27,7 +31,9 @@ class Scraper:
             listing['price'] = element.find_element_by_class_name('mp-text-price-label').text
             listing['url'] = url
             listing['date'] = element.find_element_by_class_name("mp-Listing-date").text
+            
             listings[url] = listing
+           
             #print(listing)
         return listings
 
