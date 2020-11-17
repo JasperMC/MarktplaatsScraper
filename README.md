@@ -35,9 +35,10 @@ Feel free to create an issue if you have a feature request.
   # Windows
    1. To install run the following in your Command prompt/Terminal
 
-```python3
-   python3 -m install selenium python-pushover
-   ```
+```
+python3
+python3 -m install selenium python-pushover
+```
    2. You will need to download the Chrome WebDriver for your operating system: https://chromedriver.chromium.org/downloads
    3. Extract Chrome WebDriver to a location on your computer. I would recommend a folder without UAC protection, for example C:\chromedriver\chromedriver.exe
    
