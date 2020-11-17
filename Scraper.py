@@ -22,28 +22,20 @@ class Scraper:
         for element in driver.find_elements_by_class_name("mp-Listing--list-item"):
             if ("mp-Listing--cas" in element.get_attribute('class')) and self.skip_ads:
                 break;
-            #if element.find_element_by_class_name('mp-Listing-seller-link'):
-            #    break;
-            listing = {}
-            sellerinfo = element.find_element_by_css_selector('div.mp-Listing--sellerInfo')
-            try:
-                span_site_link = sellerinfo.find_element_by_css_selector('span.mp-Listing-seller-link')
-                try:
-                    site_link = span_site_link.find_element_by_class_name('mp-Listing-sellerCoverLink mp-TextLink').get_attribute('href')
-                    print(site_link)
-                except NoSuchElementException:
-                    site_link = False
-            except NoSuchElementException:
-                site_link = False
-            if site_link and self.kip_commercial_sellers:
-                break;
             listing['title'] = element.find_element_by_css_selector('h3.mp-Listing-title').text
             listing['description'] = element.find_element_by_css_selector('p.mp-Listing-description').text
             url = element.find_element_by_class_name("mp-Listing-coverLink").get_attribute("href")
             listing['price'] = element.find_element_by_class_name('mp-text-price-label').text
             listing['url'] = url
             listing['date'] = element.find_element_by_class_name("mp-Listing-date").text
+            listing['seller_name'] = element.find_element_by_class_name("mp-Listing-seller-name").text
+            try:
+                listing['seller_website'] = element.find_element_by_class_name("mp-Listing-sellerCoverLink").get_attribute('href')
+            except NoSuchElementException:
+                listing['seller_website'] = False
             
+            if self.skip_commercial_sellers and listing['seller_website'] != False:
+                break;
             listings[url] = listing
            
             #print(listing)
