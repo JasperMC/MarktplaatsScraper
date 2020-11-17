@@ -68,7 +68,7 @@ def check_for_updates(filename, url, scraper, notifier):
     for new_listing in new_listings:
         data = new_listings[new_listing]
         title = 'New: ' + data['title']
-        message = data['description'] + "\n\n(" + data['price'] + ")"
+        message = data['description'] + "\n\nPrice: " + data['price']
         link = data['url']
         link_title = 'Open in browser'
         notifier.Notify(title,message,link,link_title)
