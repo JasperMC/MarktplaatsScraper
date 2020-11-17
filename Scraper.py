@@ -28,7 +28,11 @@ class Scraper:
             sellerinfo = element.find_element_by_css_selector('div.mp-Listing--sellerInfo')
             try:
                 span_site_link = sellerinfo.find_element_by_css_selector('span.mp-Listing-seller-link')
-                site_link = span_site_link.find_element_by_class_name('mp-Listing-sellerCoverLink mp-TextLink').get_attribute('href')
+                try:
+                    site_link = span_site_link.find_element_by_class_name('mp-Listing-sellerCoverLink mp-TextLink').get_attribute('href')
+                    print(site_link)
+                except NoSuchElementException:
+                    site_link = False
             except NoSuchElementException:
                 site_link = False
             if site_link and self.kip_commercial_sellers:
