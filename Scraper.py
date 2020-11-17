@@ -14,6 +14,8 @@ class Scraper:
         self.driver.set_window_size(1120,550)
         self.skip_ads = True
         self.skip_commercial_sellers = True
+        self.skip_bidding = True
+        self.skip_reserved = True
 
     def Scrape(self, url): # Scrapes a url through Selenium, uses a pattern to find listing details, and returns them.
         driver = self.driver
@@ -41,7 +43,12 @@ class Scraper:
             
             if self.skip_commercial_sellers and listing['seller_website'] != False:
                 continue
+            if self.skip_reserved and "Gereserveerd" in listing['price']:
+                continue
+            if self.skip_bidding and "Bieden" in listing['price']: 
+                continue
                 
+            
             listings[url] = listing
            
                   
