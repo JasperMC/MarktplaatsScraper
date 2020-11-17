@@ -32,9 +32,11 @@ class Scraper:
             listing['seller_name'] = element.find_element_by_class_name("mp-Listing-seller-name").text
             try:
                 listing['seller_website'] = element.find_element_by_class_name("mp-Listing-sellerCoverLink").get_attribute('href')
+       
             except NoSuchElementException:
                 listing['seller_website'] = False
             
+            print(listing['seller_website'])
             if self.skip_commercial_sellers and listing['seller_website'] != False:
                 break;
             listings[url] = listing
