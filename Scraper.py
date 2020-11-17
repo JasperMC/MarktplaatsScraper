@@ -25,6 +25,14 @@ class Scraper:
             #if element.find_element_by_class_name('mp-Listing-seller-link'):
             #    break;
             listing = {}
+            sellerinfo = element.find_element_by_css_selector('div.mp-Listing--sellerInfo')
+            try:
+                span_site_link = sellerinfo.find_element_by_css_selector('span.mp-Listing-seller-link')
+                site_link = span_site_link.find_element_by_class_name('mp-Listing-sellerCoverLink mp-TextLink').get_attribute('href')
+            except NoSuchElementException:
+                site_link = False
+            if site_link and self.kip_commercial_sellers:
+                break;
             listing['title'] = element.find_element_by_css_selector('h3.mp-Listing-title').text
             listing['description'] = element.find_element_by_css_selector('p.mp-Listing-description').text
             url = element.find_element_by_class_name("mp-Listing-coverLink").get_attribute("href")
