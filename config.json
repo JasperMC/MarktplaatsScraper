@@ -1,0 +1,6 @@
+{
+  "scanning_interval": 120
+  "pushover_api_token": ""
+  "pushover_user_key": ""
+  "webdriverpath": "/usr/bin/chromedriver"
+}
