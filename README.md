@@ -50,7 +50,7 @@ Open config.json to make changes to the program's configuration. The following o
  1. Chrome driver path. This is the exact filepath to the chromedriver.exe you downloaded earlier. Leave untouched when using Linux.
  2. Pushover API Token: The pushover API token for your app. See: https://pushover.net/apps/build
  3. Pushover User Key: The user key of your pushover account. See: https://support.pushover.net/i7-what-is-pushover-and-how-do-i-use-it
- 4. Scanning interval: The interval in seconds for scanning for new listings, 120 by default.
+ 4. Scanning interval: The interval in seconds for scanning for new listings, 300 by default.
 
 # How to setup a query
 1. Go to Marktplaats.nl and do a search with any filters you want (e.g. price, distance, etc.)
