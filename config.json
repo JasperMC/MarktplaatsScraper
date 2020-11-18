@@ -1,6 +1,6 @@
 {
-  "scanning_interval": 300
-  "pushover_api_token" : "API_TOKEN_HERE"
-  "pushover_user_key" : "USER_KEY_HERE"
-  "webdriverpath" : "/usr/bin/chromedriver"
+  "scanning_interval": 300,
+  "pushover_api_token": "API_TOKEN_HERE",
+  "pushover_user_key": "USER_KEY_HERE",
+  "webdriverpath": "/usr/bin/chromedriver"
 }
