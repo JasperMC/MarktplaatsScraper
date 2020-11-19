@@ -1,4 +1,4 @@
-from python-pushover import init, Client
+from pushover import init, Client
 
 class NotificationService:
     def __init__(self,api_token,user_token):
