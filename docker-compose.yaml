@@ -3,5 +3,6 @@ services:
   marktplaatsscraper:
     build: .
     volumes:
-      - ./config:/srv
+      - ./Listings:/srv/Listings
+      - ./Queries:/srv/Queries
     restart: unless-stopped
