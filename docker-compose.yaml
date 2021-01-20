@@ -3,5 +3,5 @@ services:
   marktplaatsscraper:
     build: .
     volumes:
-      - ./MarktplaatsScraper:/srv
+      - ./config:/srv
     restart: unless-stopped
