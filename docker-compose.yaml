@@ -5,11 +5,4 @@ services:
     volumes:
       - ./Listings:/srv/Listings
       - ./Queries:/srv/Queries
-    environment:
-      PUSHOVER_API_TOKEN: TOKEN_HERE
-      PUSHOVER_USER: USER_HERE
-      SCANNING_INTERVAL: 120
-      WEBDRIVER_PATH: /usr/bin/chromedriver
-      PUID: 1000
-      PGID: 100
     restart: unless-stopped
