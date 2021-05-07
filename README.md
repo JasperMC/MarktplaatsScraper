@@ -24,7 +24,7 @@ Feel free to create an issue if you have a feature request.
   2. Run the following in terminal:
   ```
   sudo apt-get update && sudo apt-get install git python3 python3-pip chromium chromium-webdriver
-  git clone https://github.com/jaspercardol/MarktplaatsScraper/
+  git clone https://github.com/JasperMC/MarktplaatsScraper/
   cd MarktplaatsScraper
   pip3 install -r requirements.txt
   chmod +x Main.py
